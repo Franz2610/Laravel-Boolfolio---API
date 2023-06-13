@@ -52,7 +52,8 @@ export default {
           'page': numPage
         }
       }).then((res) => {
-        this.projects = res.data.results.data;
+        console.log(res.data.results);
+        this.projects = res.data.results;
         this.currentPage = res.data.results.current_page;
         this.lastPage = res.data.results.last_page;
       })
