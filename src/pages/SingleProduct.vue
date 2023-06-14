@@ -6,6 +6,9 @@
  <h1>{{ project.name }}</h1>
 <img class="img-fluid" :src="project.image" alt="project.name">
 </div>
+    <!-- <div v-for="tag in project.tags">
+        <span>{{ tag.name }}</span>
+    </div> -->
 
 
 </template>

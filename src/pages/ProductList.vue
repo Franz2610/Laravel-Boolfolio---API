@@ -5,6 +5,7 @@
             <ProductCard v-for="(project, index) in projects" :key="project.id" :project="project" />
 
         </div>
+
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item"><button :class="{ 'page-link': true, 'disabled': currentPage === 1 }"
