@@ -1,16 +1,24 @@
 <template>
-    <div v-if="project">
 
-        <h1>Singolo Prodotto</h1>
-         <h1>{{ project.name }}</h1>
-        <img class="img-fluid" :src="project.image" alt="project.name">
-    </div>
+<div v-if="project">
+
+<h1>Singolo Prodotto</h1>
+ <h1>{{ project.name }}</h1>
+<img class="img-fluid" :src="project.image" alt="project.name">
+</div>
+
+
 </template>
 
 <script>
+
 import axios from 'axios';
+import Loader from '../components/Loader.vue';
 export default {
     name : 'SingleProduct',
+    components: {
+        Loader,
+    },
     data() {
         return{
             project: null,

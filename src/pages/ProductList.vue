@@ -1,48 +1,10 @@
 <template>
     <div class="container" id="product-list">
-  
-      <div class="row gy-4 mb-4">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="(project, index) in projects" :key="project.id">
-          <div class="card">
-            <div class="card-title">
-              <h3>{{ project.name }}</h3>
-            </div>
-            <div class="card-body d-flex justify-content-between align-items-end">
-              <div>
-                <!-- <h6>{{ project.typemodel.name }}</h6> -->
-                <div v-if="project.typemodel.name === 'Html'"> Html</div>
-                <div v-else-if="project.typemodel.name === 'Css'"> Css</div>
-                <div v-else-if="project.typemodel.name === 'Bootstrap'"> Bootstrap</div>
-                <div v-else-if="project.typemodel.name === 'Vue'"> Vue</div>
-                <div v-else-if="project.typemodel.name === 'Vite'"> Vite</div>
-                <div v-else-if="project.typemodel.name === 'Js'"> Js</div>
-                <div v-else-if="project.typemodel.name === 'Php'"> Php</div>
-                <div v-else-if="project.typemodel.name === 'Laravel'"> Laravel</div>
-                <div v-else-if="project.typemodel.name === 'Sass'"> Sass</div>
-                <div v-else>Not a model</div>
+        <h1>{{ title }}</h1>
+        <div class="row gy-4 mb-4">
+            <ProductCard v-for="(project, index) in projects" :key="project.id" :project="project" />
 
-                
-                <img class="img-fluid" :src="project.image" alt="project.name">
-
-                <!-- <p>{{ project.bodytext }}</p> -->
-        <!-- <p>
-        
-            <router-link :to="{name: 'single-product', params:{slug: project.slug}}" class="btn btn-primary">
-                Vedi Prodotto
-            </router-link>
-         </p> -->
-         <p>
-            <router-link :to="{name: 'single-product', params:{id:project.id}}" class="btn btn-primary">
-                Informazioni
-            </router-link>
-         </p>
-              </div>
-              
-  
-            </div>
-          </div>
         </div>
-      </div>
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item"><button :class="{ 'page-link': true, 'disabled': currentPage === 1 }"
@@ -63,11 +25,16 @@
   
   <script>
   import axios from 'axios';
+  import ProductCard from '../components/ComponentCard.vue';
   
   export default {
-    'name': 'ProdutList',
+    'name': 'ProductList',
+    components:{
+        ProductCard
+    },
     data() {
       return {
+        title: 'Projects List',
         projects: [],
         apiUrl: 'http://localhost:8000/api',
         currentPage: 1,
