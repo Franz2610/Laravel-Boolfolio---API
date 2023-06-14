@@ -1,16 +1,20 @@
 <template>
   <HeaderApp />
-  <router-view></router-view>
+  <main>
+    <router-view></router-view>
+  </main>
+  <FooterApp />
 </template>
 
 <script>
 import axios from 'axios';
 import HeaderApp from './components/HeaderApp.vue';
-
+import FooterApp from './components/FooterApp.vue';
 export default {
   'name': 'App',
   components: {
     HeaderApp,
+    FooterApp
   }
 
 }

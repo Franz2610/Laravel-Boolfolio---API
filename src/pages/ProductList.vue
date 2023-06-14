@@ -25,6 +25,17 @@
                 <img class="img-fluid" :src="project.image" alt="project.name">
 
                 <!-- <p>{{ project.bodytext }}</p> -->
+        <!-- <p>
+        
+            <router-link :to="{name: 'single-product', params:{slug: project.slug}}" class="btn btn-primary">
+                Vedi Prodotto
+            </router-link>
+         </p> -->
+         <p>
+            <router-link :to="{name: 'single-product', params:{id:project.id}}" class="btn btn-primary">
+                Informazioni
+            </router-link>
+         </p>
               </div>
               
   
@@ -44,6 +55,9 @@
               @click="getData(currentPage + 1)">Next</button></li>
         </ul>
       </nav>
+
+
+
     </div>
   </template>
   
